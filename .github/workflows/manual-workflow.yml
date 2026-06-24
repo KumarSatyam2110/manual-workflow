@@ -1,0 +1,21 @@
+name: workflow
+on:
+        workflow_dispatch:
+                inputs:
+                        environments:
+                                description: "Deployment Environment"
+                                required: false
+                                default: "dev"
+                        version:
+                                description: "Application Version"
+                                required: true
+jobs:
+        run-manual-workflow:
+                runs-on: ubuntu-latest
+                steps:
+                        - name: Print Inputs
+                          run: |
+                                  echo "Environment: ${{ inputs.environment }}"
+                                  echo "Version: ${{ inputs.version }}"
+
+
